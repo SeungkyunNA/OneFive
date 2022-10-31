@@ -1,3 +1,6 @@
+import CardPlayers.CardPlayer;
+import Cards.Card;
+
 public class Dealer {
 
     int round = 5;
@@ -5,7 +8,7 @@ public class Dealer {
     CardPlayer c;
     Card u_Card;
     Card c_Card;
-    int isUserWin; // 0 = Draw , 1 = User win , 2 = Computer Win
+    int isUserWin; // 0 = Draw , 1 = Player 1 win , 2 = Player 2 Win
     int isUserFinalWin = -1;
     int[] sc = new int[13];
 
@@ -25,58 +28,58 @@ public class Dealer {
 
             isUserWin = whoWin(u_Card, c_Card);
             if (isUserWin == -99) {
-                System.err.println("파토");
+                System.err.println("Error");
                 return false;
             }
 
-            /* 포인트 분배 */
+            /* Point zuteilen */
             if (isUserWin == 1) {
 
-                // System.out.println("Round : " + ((round * -1) + 6));
-                // System.out.println("유저선택 : " + u_Card.getValue() + " 컴퓨터 선택 : " +
-                // c_Card.getValue());
-                // System.out.println("유저가 승리했습니다.");
+                System.out.println("Round : " + ((round * -1) + 6));
+                System.out.println("Player 1 Choose : " + u_Card.getValue() + " Player 2 Choose : " +
+                        c_Card.getValue());
+                System.out.println("Player 1 Win");
                 u.scoreAdd(u_Card.getValue() + c_Card.getValue());
 
-                // System.out.println("현재 스코어");
-                // System.out.println("유저 : " + u.getScore() + " 컴퓨터 : " + c.getScore());
+                System.out.println("Score");
+                System.out.println("Player 1 : " + u.getScore() + " Player 2 : " + c.getScore());
                 round--;
             } else if (isUserWin == 2) {
-                // System.out.println("Round : " + ((round * -1) + 6));
-                // System.out.println("유저선택 : " + u_Card.getValue() + " 컴퓨터 선택 : " +
-                // c_Card.getValue());
-                // System.out.println("컴퓨터가 승리했습니다.");
+                System.out.println("Round : " + ((round * -1) + 6));
+                System.out.println("Player 1 Choose : " + u_Card.getValue() + " Player 2 Choose : " +
+                        c_Card.getValue());
+                System.out.println("Player 2 Win");
 
                 c.scoreAdd(u_Card.getValue() + c_Card.getValue());
-                // System.out.println("현재 스코어");
-                // System.out.println("유저 : " + u.getScore() + " 컴퓨터 : " + c.getScore());
+                System.out.println("Score");
+                System.out.println("Player 1 : " + u.getScore() + " Player 2 : " + c.getScore());
                 round--;
             } else if (isUserWin == 0) {
-                // System.out.println("Round : " + ((round * -1) + 6));
-                // System.out.println("유저선택 : " + u_Card.getValue() + " 컴퓨터 선택 : " +
-                // c_Card.getValue());
-                // System.out.println("비겼습니다");
-                // System.out.println("현재 스코어");
-                // System.out.println("유저 : " + u.getScore() + " 컴퓨터 : " + c.getScore());
+                System.out.println("Round : " + ((round * -1) + 6));
+                System.out.println("Player 1 Choose : " + u_Card.getValue() + " Player 2 Choose : " +
+                        c_Card.getValue());
+                System.out.println("Draw");
+                System.out.println("Score");
+                System.out.println("Player 1 : " + u.getScore() + " Player 2 : " + c.getScore());
                 round--;
             } else {
-                // System.err.println("문제생김");
+                System.err.println("Error");
             }
         } else {
             sc[12] = isUserFinalWin;
             switch (isUserFinalWin) {
                 case 0:
-                    // System.out.println("게임이 종료되었습니다 비겼습니다");
+                    System.out.println("Draw!!!!!!");
                     u.closeInput();
 
                     break;
                 case 1:
-                    // System.out.println("게임이 종료되었습니다 유저가 승리했습니다");
+                    System.out.println("Player 1 Win!!!!!!");
                     u.closeInput();
 
                     break;
                 case 2:
-                    // System.out.println("게임이 종료되었습니다 컴퓨터가 승리했습니다");
+                    System.out.println("Player 2 Win!!!!!");
                     u.closeInput();
 
                     break;
@@ -202,7 +205,7 @@ public class Dealer {
                     return 0;
             }
         } else {
-            System.err.println("파토");
+            System.err.println("abgebrochen");
 
         }
         return -99;

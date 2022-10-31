@@ -1,4 +1,4 @@
-
+package Cards;
 public class Zero extends Card {
     final int value = 0;
 

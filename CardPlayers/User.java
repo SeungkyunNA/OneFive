@@ -1,5 +1,14 @@
+package CardPlayers;
 
 import java.util.Scanner;
+
+import Cards.Card;
+import Cards.Five;
+import Cards.Four;
+import Cards.One;
+import Cards.Three;
+import Cards.Two;
+import Cards.Zero;
 
 public class User extends CardPlayer {
     int score = 0;
@@ -21,7 +30,7 @@ public class User extends CardPlayer {
         while (true) {
             if (!nr.hasNextInt()) {
                 nr.next();
-                System.err.println("숫자를 입력해주세요");
+                System.err.println("Please enter a number between 0 and 5");
             }
 
             else {
@@ -30,14 +39,14 @@ public class User extends CardPlayer {
             }
         }
 
-        System.out.println("사용자 입력 : " + select);
+        System.out.println("User Input : " + select);
         while (!isRightCard) {
 
             if (select < 0 || select > 5) {
-                System.out.println("잘못된 입력입니다. 다른카드를 선택해주세요");
+                System.out.println("Invalid input. Please select a different card");
                 select = nr.nextInt();
             } else if (deck[select] == null) {
-                System.out.println("이미 제출한 카드입니다. 다른카드를 선택해주세요");
+                System.out.println("This card has already been submitted. Please select a different card");
                 select = nr.nextInt();
             } else {
                 isRightCard = true;

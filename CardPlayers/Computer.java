@@ -1,4 +1,14 @@
+package CardPlayers;
+
 import java.util.Random;
+
+import Cards.Card;
+import Cards.Five;
+import Cards.Four;
+import Cards.One;
+import Cards.Three;
+import Cards.Two;
+import Cards.Zero;
 
 public class Computer extends CardPlayer {
     int score = 0;

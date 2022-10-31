@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 
 public class Scoreboard {
 
@@ -28,11 +27,11 @@ public class Scoreboard {
         String text = dbtoString(rc);
         // System.out.println(text);
 
-        File db = new File("/Users/na/Desktop/OneFive/OneFive/db.txt");
+        File db = new File("./db.txt");
         PrintWriter out = null;
         try {
             FileWriter writer = new FileWriter(db, true);
-            // 필터
+
             out = new PrintWriter(writer);
             out.print(text);
             // out.flush();

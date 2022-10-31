@@ -1,3 +1,6 @@
+package CardPlayers;
+import Cards.Card;
+
 public abstract class CardPlayer {
     int score;
     Card[] deck;

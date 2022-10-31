@@ -1,4 +1,4 @@
-
+package Cards;
 public class Three extends Card {
     final int value = 3;
 
